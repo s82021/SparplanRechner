@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Sparplan Rechner</title>
+</head>
+<body>
+   <div class="head">SPARPLAN RECHNER</div>
+   <div class="eingabebereich">
+      <div class="inEinzahlung">
+         <label for="inputEinzahlung">Einmalige Einzahlung:</label>
+         <br>
+         <input type="range" min="0" max="100000" step="1000" value="1000" id="sliderEinzahlung">
+         <input type="number" id="inputEinzahlung" value="1000"> Euro
+      </div>
+      <div class="inSparbetrag">
+         <label for="inputSparbetrag">Monatliche Einzahlung:</label>
+         <br>
+         <input type="range" min="0" max="2000" step="25" value="200" id="sliderSparbetrag">
+         <input type="number" id="inputSparbetrag" value="200"> Euro
+      </div>
+      <div class="inWertentwicklung">
+         <label for="inputWertentwicklung">jährliche Wertenwicklung:</label><br>
+         <!-- DAX -->
+         <input type="radio" id="daxButton" name="Index" value="5.7">
+         <label for="daxButton">DAX</label>
+         <!-- MSCI WORLD -->
+         <input type="radio" id="worldButton" name="Index" value="6.52" checked>
+         <label for="worldButton">MSCI World</label>
+         <!-- S&P 500 -->
+         <input type="radio" id="spButton" name="Index" value="7.88">
+         <label for="spButton">S&P 500</label>
+         <!-- Individuell -->
+         <input type="radio" id="individuellButton" name="Index" value="6.52">
+         <label for="individuellButton">Individuell</label>
+
+         <input type="number" id="inputWertentwicklung" value="6.52"> %
+      </div>
+      <div class="inAnlagedauer">
+         <label for="inputDauer">Anlagedauer:</label>
+         <br>
+         <input type="range" min="1" max="50" step="1" value="5" id="sliderDauer">
+         <input type="number" id="inputDauer" value="5"> Jahre
+      </div>
+   </div>
+   <div class="ausgabebereich">
+      <div class="outEinzahlung"></div>
+      <div class="outSparbetrag"></div>
+      <div class="outRendite"></div>
+   </div>
+   <script src="index.js"></script>
+</body>
+</html>
