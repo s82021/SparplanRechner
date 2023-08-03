@@ -9,6 +9,10 @@ let individuellButton = document.getElementById("individuellButton")
 let inputWertentwicklung = document.getElementById("inputWertentwicklung")
 let inputDauer = document.getElementById("inputDauer")
 let slideDauer = document.getElementById("slideDauer")
+let displayEinzahlung = document.getElementById("displayEinzahlung")
+let displaySparbetrag = document.getElementById("displaySparbetrag")
+let displayRendite = document.getElementById("displayRendite")
+let displayGesamtsparleistung = document.getElementById("displayGesamtsparleistung")
 
 // Verbindung Einzahlung
 sliderEinzahlung.addEventListener("change", e => {
@@ -63,8 +67,12 @@ function berechnen() {
    let sparrate = inputSparbetrag.value
    let einmalzahlung = inputEinzahlung.value
    let zinssatz = 1 + inputWertentwicklung.value / 100
+   let gesamt = 0
 
-   gesamtsparleistung = einmalzahlung * (zinssatz ** jahre) + sparrate * Math.pow(zinssatz, 1 / 12) * ((zinssatz ** jahre - 1) / (Math.pow(zinssatz, 1 / 12) - 1))
+   gesamt = einmalzahlung * (zinssatz ** jahre) + sparrate * Math.pow(zinssatz, 1 / 12) * ((zinssatz ** jahre - 1) / (Math.pow(zinssatz, 1 / 12) - 1))
 
-
+   displayGesamtsparleistung.innerText = Math.round(gesamt * 100) / 100
+   displayEinzahlung.innerText = inputEinzahlung.value
+   displaySparbetrag.innerText = jahre * sparrate * 12
+   displayRendite.innerText = Math.round((gesamt - inputEinzahlung.value - jahre * sparrate * 12) * 100) / 100
 }
